@@ -1,3 +1,4 @@
+drop database if exists checkin;
 create database if not exists checkin;
 use checkin;
 
@@ -5,7 +6,7 @@ create table Participante (
 id_participante integer not null auto_increment primary key,
 nome_participante varchar (200),
 email varchar (200),
-cpf varchar(11),
+cpf varchar(11) unique,
 origem varchar(200)
 );
 create table Usuario (
@@ -29,5 +30,5 @@ id_participante integer not null references participante
 
 insert into Usuario values (null , 'larissa' , '123');
 
-create user 'checkin'@'localhost' identified by '123';
-grant all privilleges on checkin.* to 'checkin'@'localhost';
+create user if not exists 'checkin'@'localhost' identified by '123';
+grant all privileges on checkin.* to 'checkin'@'localhost';

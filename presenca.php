@@ -14,23 +14,38 @@ if (!$login->usuarioEstaLogado()) {
 }
 
 $mensagem = '';
-if (isset($_POST['cadastrar'])) {
-	$id_atividade = $_POST['id_participante'];
-	$id_participante = $_POST['id_atividade'];
+if (isset($_POST['cpf_participante']) && isset($_POST['id_atividade'])) {
+	$id_atividade = $_POST['id_atividade'];
+	$cpf_participante = $_POST['cpf_participante'];
 
-
-	$banco->insertInto('Presenca', [
-		'id_participante' => $id_participante,
-		'id_atividade' => $id_atividade,
-		
+	$atividade = $banco->selectWhere('Atividade', [
+		'id_atividade' => $id_atividade
 	]);
-	$mensagem = 'atividade cadastrada';
+
+	if (count($atividade) == 0) {
+		die("Erro: atividade não encontrada");
+	}
+
+	$atividade = $atividade[0];
+
+	$participante = $banco->selectWhere('Participante', [
+		'cpf' => $cpf_participante
+	]);
+
+	if (count($participante) == 0) {
+		$mensagem = "Participante não identificado :(";
+	} else {
+
+		$participante = $participante[0];
+
+		$banco->insertInto('Presenca', [
+			'id_participante' => $participante['id_participante'],
+			'id_atividade' => $id_atividade
+		]);
+
+		$mensagem = 'Presença registrada!';
+	}
 }
-
-
-
-/* conectar com o banco e fazer um insert no banco */
-var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,9 +56,10 @@ var_dump($_POST);
 </head>
 <body>
 	<div id="conteiner">
-		<h2>Presença Registrada!</h2>
-		<p>Nome: </p>
-		<p>Atividade: </p>
+		<h2><?= $mensagem ?></h2>
+		<p>Nome: <?= isset($participante) ? $participante['nome_participante'] : '' ?></p>
+		<p>Atividade: <?= isset($atividade) ? $atividade['nome_atividade'] : '' ?></p>
+		<p><a href="qrcode.php?id=<?= $id_atividade ?>">Registrar Nova Presença</a></p>
 	</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'funcoes.php';
 require_once 'banco.class.php';
 require_once 'login.class.php';
@@ -30,24 +30,30 @@ $atividade = $banco->selectWhere('Atividade' , [
 <body>
 	<div id="conteiner">
 		<h1> <?=$atividade['nome_atividade']?> </h1>
-		<div>
+		<div id="camera">
 			<video id="preview"></video>
 		</div>
 	</div>
 	<form id="dados" action="presenca.php" method="post">
-		<input type="hidden" name="id_participante" id="id_participante">
+		<label for="cpf_participante">CPF:</label>
+		<input type="text" name="cpf_participante" id="cpf_participante" maxlength="11" inputmode="numeric" autofocus>
 		<input type="hidden" name="id_atividade" value="<?= $id ?>">
 	</form>
 	<script type="text/javascript" src="instascan.min.js"></script>
 	<script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
-        var id_participante = content;
-        enviarDados(id_participante);
+        var cpf_participante = content;
+        enviarDados(cpf_participante);
       });
       Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
-          scanner.start(cameras[0]);
+					var ci = 0;
+
+					if (cameras.length > 1)
+						ci = parseInt(window.prompt('Tem ' + cameras.length + ' cameras. Qual abrir?'));
+
+          scanner.start(cameras[ci]);
         } else {
           console.error('No cameras found.');
         }
@@ -55,12 +61,10 @@ $atividade = $banco->selectWhere('Atividade' , [
         console.error(e);
       });
 
-      function enviarDados(id_participante) {
-      	document.querySelector('#id_participante').value = id_participante;
+      function enviarDados(cpf_participante) {
+      	document.querySelector('#cpf_participante').value = cpf_participante;
       	document.querySelector('#dados').submit();
       }
-
-
     </script>
 </body>
 </html>
