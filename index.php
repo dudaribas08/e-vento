@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'funcoes.php';
 require_once 'banco.class.php';
 require_once 'login.class.php';
@@ -29,7 +29,8 @@ $usuario = $login->getUsuario();
 		<ul>
 			<li><a href="cadAtividade.php">Cadastro de Atividades</a></li><br>
 			<li><a href="cadParticipante.php">Cadastro de Participantes</a></li><br>
-			<li><a href="registro.php">Registro de Presença</a></li>
+			<li><a href="registro.php">Registro de Presença</a></li><br>
+			<li><a href="presentes.php">Lista de Presentes</a></li>
 		</ul>
 	</nav>
 </body>
