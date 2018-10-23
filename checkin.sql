@@ -5,7 +5,8 @@ create table Participante (
 id_participante integer not null auto_increment primary key,
 nome_participante varchar (200),
 email varchar (200),
-cpf varchar(11)
+cpf varchar(11),
+origem varchar(200)
 );
 create table Usuario (
 id_usuario integer not null auto_increment primary key,
@@ -27,5 +28,6 @@ id_participante integer not null references participante
 );
 
 insert into Usuario values (null , 'larissa' , '123');
-select * from Atividade;
-select * from Participante;
+
+create user 'checkin'@'localhost' identified by '123';
+grant all privilleges on checkin.* to 'checkin'@'localhost';

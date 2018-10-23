@@ -2,8 +2,8 @@
 class Banco {
 
   private $nomeBanco = 'checkin';
-  private $usuarioBanco = 'root';
-  private $senhaBanco = '';
+  private $usuarioBanco = 'checkin';
+  private $senhaBanco = '123';
 
   private $pdo;
 
