@@ -20,15 +20,18 @@ if (isset($_POST['cadastrar'])) {
 	$email = $_POST['email'];
 	$cpf = $_POST['cpf'];
 
-	$banco->insertInto('Participante', [
+	$linhasAfetadas = $banco->insertInto('Participante', [
 		'nome_participante' => $nome,
 		'email' => $email,
 		'cpf' => $cpf,
 	]);
-	$mensagem = 'Participante cadastrado';
 
-	redirecionarPara('index.php');
-
+	if ($linhasAfetadas == 0) {
+		$mensagem = "Não consegui cadastrar. (Participante pode já estar cadastrado.)";
+	} else {
+		$mensagem = 'Participante cadastrado';
+		redirecionarPara('index.php');
+	}
 }
 
 
@@ -51,7 +54,7 @@ if (isset($_POST['cadastrar'])) {
 
 	<div id="conteiner">
 		<h1>Cadastro de Participantes</h1>
-		<p> <?=$mensagem?> </p>
+		<p style="color: red;"> <?=$mensagem?> </p>
 		<form action="cadParticipante.php" method="post">
 			<div><label for="inome">Nome </label><input name="nome" type="text" id="inome" autofocus required mozactionhint="next"></div>
 			<div><label for="iemail">Email </label><input name="email" type="email" id="iemail" required mozactionhint="next"></div>
