@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'funcoes.php';
 require_once 'banco.class.php';
 require_once 'login.class.php';
@@ -14,7 +14,7 @@ if (!$login->usuarioEstaLogado()) {
 
 $usuario = $login->getUsuario();
 
-$atividades = $banco->select('Atividade');
+$atividades = $banco->selectSql('SELECT * FROM Atividade ORDER BY nome_atividade');
 
 ?>
 
@@ -32,7 +32,7 @@ $atividades = $banco->select('Atividade');
 		<?php
 		foreach ($atividades as $atividade) {
 			?>
-			<div><a href="qrcode.php?id=<?= $atividade['id_atividade'] ?>"> <?= $atividade['nome_atividade'] ?> </a></div>
+			<div class="linkatividade"><a href="qrcode.php?id=<?= $atividade['id_atividade'] ?>"> <?= $atividade['nome_atividade'] ?> </a></div>
 			<?php
 		}
 
