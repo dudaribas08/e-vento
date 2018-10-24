@@ -70,5 +70,7 @@ if (isset($_GET['cpf'])) {
     }
     ?>
   </div>
+  <p id="rodape">Copyleft 2018 | Daniel Conrado - Larissa Maiello - Maria Eduarda Ribas - Matheus Vasconcelos | </p> 
+
 </body>
 </html>
