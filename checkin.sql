@@ -24,8 +24,8 @@ descricao varchar(360)
 );
 
 create table Presenca(
-id_atividade integer not null references atividade,
-id_participante integer not null references participante
+id_atividade integer not null unique references atividade,
+id_participante integer not null unique references participante
 );
 
 insert into Usuario values (null , 'larissa' , '123');
