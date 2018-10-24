@@ -33,7 +33,8 @@ if (isset($_POST['cpf_participante']) && isset($_POST['id_atividade'])) {
 	]);
 
 	if (count($participante) == 0) {
-		$mensagem = "Participante não identificado :(";
+		$mensagem = "Participante não identificado :( Te redirecionando para o cadastro em 3 segundos...";
+		header('Refresh: 3;URL=cadParticipante.php');
 	} else {
 
 		$participante = $participante[0];
