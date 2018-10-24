@@ -72,5 +72,7 @@ if (isset($_POST['cpf_participante']) && isset($_POST['id_atividade'])) {
 		<p><a href="qrcode.php?id=<?= $id_atividade ?>">Registrar Nova Presença</a></p>
 		<p><a href="presentes.php?id_atividade=<?= $id_atividade ?>">Ver os já presentes nessa atividade</a></p>
 	</div>
+	<p id="rodape">Copyleft 2018 | Daniel Conrado - Larissa Maiello - Maria Eduarda Ribas - Matheus Vasconcelos | </p> 
+
 </body>
 </html>
