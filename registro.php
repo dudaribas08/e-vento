@@ -27,6 +27,9 @@ $atividades = $banco->selectSql('SELECT * FROM Atividade ORDER BY nome_atividade
 	<link rel="stylesheet" href="css.css">
 </head>
 <body>
+	<div id="voltarmenu">
+		<a href="index.php">← Menu</a>
+	</div>
 	<div id="conteiner">
 		<h1>Selecione uma Atividade</h1>
 		<?php

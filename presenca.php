@@ -57,6 +57,10 @@ if (isset($_POST['cpf_participante']) && isset($_POST['id_atividade'])) {
 	<link rel="stylesheet" href="css.css">
 </head>
 <body>
+	<div id="voltarmenu">
+		<a href="index.php">← Menu</a>
+	</div>
+
 	<div id="conteiner">
 		<h2><?= $mensagem ?></h2>
 		<p>Nome: <?= isset($participante) ? $participante['nome_participante'] : '' ?></p>

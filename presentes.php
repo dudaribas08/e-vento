@@ -40,8 +40,11 @@ if (isset($_GET['id_atividade'])) {
 	<link rel="stylesheet" href="css.css">
 </head>
 <body>
+	<div id="voltarmenu">
+		<a href="index.php">← Menu</a>
+	</div>
+
 	<div id="conteiner">
-    <p><a href="index.php">Página Inicial</a></p>
     <h2>Atividades</h2>
     <p><a href="presentes.php">TODAS</a></p>
     <?php

@@ -45,6 +45,10 @@ if (isset($_POST['cadastrar'])) {
 	<link rel="stylesheet" href="css.css">
 </head>
 <body>
+	<div id="voltarmenu">
+		<a href="index.php">← Menu</a>
+	</div>
+
 	<div id="conteiner">
 		<h1>Cadastro de Atividades</h1>
 		<p> <?=$mensagem?> </p>

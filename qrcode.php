@@ -28,6 +28,10 @@ $atividade = $banco->selectWhere('Atividade' , [
   <link rel="stylesheet" href="css.css">
 </head>
 <body>
+	<div id="voltarmenu">
+		<a href="index.php">← Menu</a>
+	</div>
+
 	<div id="conteiner">
 		<h1> <?=$atividade['nome_atividade']?> </h1>
 		<p id="btncameras"></p>

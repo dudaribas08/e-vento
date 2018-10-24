@@ -95,3 +95,12 @@ form{
 .linkatividade:nth-child(even) {
 		background-color: #f0f9e0;
 }
+
+#voltarmenu a {
+	padding: 5px;
+	background-color: green;
+	font-weight: bold;
+	font-size: 90%;
+	color: white;
+	text-decoration: none;
+}
