@@ -51,11 +51,11 @@ $atividade = $banco->selectWhere('Atividade' , [
       Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
 
-					cameras.forEach(function (camera) {
+					cameras.forEach(function (camera,ci) {
 
 						var btn = document.createElement('button');
 						btn.type = 'button'; /* sem comportamento padrao */
-						btn.textContent = 'Abrir camera ' + camera.id;
+						btn.textContent = 'Abrir camera ' + (ci+1);
 						btn.addEventListener('click', function(e) {
 							scanner.start(camera);
 						});
