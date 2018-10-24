@@ -36,8 +36,9 @@ $atividade = $banco->selectWhere('Atividade' , [
 	</div>
 	<form id="dados" action="presenca.php" method="post">
 		<label for="cpf_participante">CPF:</label>
-		<input type="text" name="cpf_participante" id="cpf_participante" maxlength="11" inputmode="numeric" autofocus>
+		<input type="text" name="cpf_participante" id="cpf_participante" maxlength="11" inputmode="numeric" autofocus mozactionhint="go">
 		<input type="hidden" name="id_atividade" value="<?= $id ?>">
+		<button type="submit">Registrar</button>
 	</form>
 	<script type="text/javascript" src="instascan.min.js"></script>
 	<script type="text/javascript">

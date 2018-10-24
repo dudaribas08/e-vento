@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'funcoes.php';
 require_once 'banco.class.php';
 require_once 'login.class.php';
@@ -49,10 +49,10 @@ if (isset($_POST['cadastrar'])) {
 		<h1>Cadastro de Atividades</h1>
 		<p> <?=$mensagem?> </p>
 		<form action="cadAtividade.php" method="post">
-			<div><label for="inome">Nome </label><input name="nome" type="text" id="inome"></div>
-			<div><label for="ilocal">Local </label><input name="local" type="text" id="ilocal"></div>
-			<div><label for="idata">Data</label><input name="data" type="datetime-local" id="idata"></div>
-			<div><label for="idescricao">Descrição</label><input name="descricao" type="text" id="idescricao"></div>
+			<div><label for="inome">Nome </label><input name="nome" type="text" id="inome" autofocus required mozactionhint="next"></div>
+			<div><label for="ilocal">Local </label><input name="local" type="text" id="ilocal" mozactionhint="next"></div>
+			<div><label for="idata">Data</label><input name="data" type="datetime-local" id="idata" required mozactionhint="next"></div>
+			<div><label for="idescricao">Descrição</label><input name="descricao" type="text" id="idescricao" mozactionhint="go"></div>
 			<div><button name="cadastrar" type="submit">Cadastrar</button></div>
 		</form>
 	</div>

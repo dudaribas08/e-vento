@@ -41,9 +41,9 @@ if (isset($_POST['btnentrar'])) { // o formulário foi submetido. Tentar logar
 		<form class="form-empilhado bloco-pequeno" action="login.php" method="post">
 			<p class="mensagem"><?= $mensagem ?></p>
 			<label for="ilogin">Login</label>
-			<input id="ilogin" type="text" name="login">
+			<input id="ilogin" type="text" name="login" inputmode="verbatim" mozactionhint="next">
 			<label for="isenha">Senha</label>
-			<input type="password" name="senha" id="isenha">
+			<input type="password" name="senha" id="isenha" mozactionhint="go">
 			<button type="submit" name="btnentrar">Entrar</button>
 		</form>
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'funcoes.php';
 require_once 'banco.class.php';
 require_once 'login.class.php';
@@ -26,7 +26,7 @@ if (isset($_POST['cadastrar'])) {
 		'cpf' => $cpf,
 	]);
 	$mensagem = 'Participante cadastrado';
-	
+
 	redirecionarPara('index.php');
 
 }
@@ -49,9 +49,9 @@ if (isset($_POST['cadastrar'])) {
 		<h1>Cadastro de Participantes</h1>
 		<p> <?=$mensagem?> </p>
 		<form action="cadParticipante.php" method="post">
-			<div><label for="inome">Nome </label><input name="nome" type="text" id="inome"></div>
-			<div><label for="iemail">Email </label><input name="email" type="email" id="iemail"></div>
-			<div><label for="icpf">CPF </label><input name="cpf" type="text" id="icpf"></div>
+			<div><label for="inome">Nome </label><input name="nome" type="text" id="inome" autofocus required mozactionhint="next"></div>
+			<div><label for="iemail">Email </label><input name="email" type="email" id="iemail" required mozactionhint="next"></div>
+			<div><label for="icpf">CPF </label><input name="cpf" type="text" id="icpf" required mozactionhint="go"></div>
 			<div><button name="cadastrar" type="submit">Cadastrar</button></div>
 		</form>
 	</div>
