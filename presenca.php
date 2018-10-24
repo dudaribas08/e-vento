@@ -70,6 +70,7 @@ if (isset($_POST['cpf_participante']) && isset($_POST['id_atividade'])) {
 		<p>Nome: <?= isset($participante) ? $participante['nome_participante'] : '' ?></p>
 		<p>Atividade: <?= isset($atividade) ? $atividade['nome_atividade'] : '' ?></p>
 		<p><a href="qrcode.php?id=<?= $id_atividade ?>">Registrar Nova Presença</a></p>
+		<p><a href="presentes.php?id_atividade=<?= $id_atividade ?>">Ver os já presentes nessa atividade</a></p>
 	</div>
 </body>
 </html>
