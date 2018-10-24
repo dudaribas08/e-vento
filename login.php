@@ -37,7 +37,12 @@ if (isset($_POST['btnentrar'])) { // o formulário foi submetido. Tentar logar
 		<h1>E-vento</h1>
 	</header>
 	<main class="bloco-central">
-
+		<div style="text-align: center">
+			<h2>Área do Participante</h2>
+			<a href="participante.php">Entrar na Área do Participante</a>
+			<hr>
+			<h2>Área do Admin</h2>
+		</div>
 		<form class="form-empilhado bloco-pequeno" action="login.php" method="post">
 			<p class="mensagem"><?= $mensagem ?></p>
 			<label for="ilogin">Login</label>

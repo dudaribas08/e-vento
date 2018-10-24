@@ -104,3 +104,18 @@ form{
 	color: white;
 	text-decoration: none;
 }
+
+.form-empilhado label, .form-empilhado input {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.form-empilhado input {
+	height: 28px;
+}
+
+.form-empilhado button {
+	height: 28px;
+	margin-top: 10px;
+}

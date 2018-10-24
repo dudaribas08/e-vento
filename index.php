@@ -30,7 +30,8 @@ $usuario = $login->getUsuario();
 			<li><a href="cadAtividade.php">Cadastro de Atividades</a></li><br>
 			<li><a href="cadParticipante.php">Cadastro de Participantes</a></li><br>
 			<li><a href="registro.php">Registro de Presença</a></li><br>
-			<li><a href="presentes.php">Lista de Presentes</a></li>
+			<li><a href="presentes.php">Lista de Presentes</a></li><br>
+			<li style="background-color: red"><a href="logout.php">sair</a></li>
 		</ul>
 	</nav>
 </body>
