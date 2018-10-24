@@ -49,4 +49,15 @@ class Banco {
     return $comando->rowCount();
   }
 
+  function deleteFromWhere($tabela, $parametros) {
+    $sql = "DELETE FROM $tabela WHERE ";
+    foreach (array_keys($parametros) as $parametro) {
+      $sql = $sql . $parametro . '=? AND ';
+    }
+    $sql = $sql . '1=1';
+    $comando = $this->pdo->prepare($sql);
+    $comando->execute(array_values($parametros));
+    return $comando->rowCount();
+  }
+
 }

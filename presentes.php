@@ -19,7 +19,7 @@ $filtro = "";
 if (isset($_GET['id_atividade'])) {
   $id_atividade = $_GET['id_atividade'];
 
-  $presentes = $banco->selectWhereSql("SELECT a.nome_atividade, p.nome_participante FROM Presenca pr INNER JOIN Participante p ON (p.id_participante = pr.id_participante) INNER JOIN Atividade a ON (a.id_atividade = pr.id_atividade) WHERE a.id_atividade = ? ORDER BY a.nome_atividade, p.nome_participante"
+  $presentes = $banco->selectWhereSql("SELECT a.id_atividade, p.id_participante, a.nome_atividade, p.nome_participante FROM Presenca pr INNER JOIN Participante p ON (p.id_participante = pr.id_participante) INNER JOIN Atividade a ON (a.id_atividade = pr.id_atividade) WHERE a.id_atividade = ? ORDER BY a.nome_atividade, p.nome_participante"
     , [
       $id_atividade
     ]);
@@ -27,7 +27,7 @@ if (isset($_GET['id_atividade'])) {
 		$filtro = "Mostrando apenas os presentes na Atividade $id_atividade";
 } else {
 
-  $presentes = $banco->selectSql("SELECT a.nome_atividade, p.nome_participante FROM Presenca pr INNER JOIN Participante p ON (p.id_participante = pr.id_participante) INNER JOIN Atividade a ON (a.id_atividade = pr.id_atividade) ORDER BY a.nome_atividade, p.nome_participante");
+  $presentes = $banco->selectSql("SELECT a.id_atividade, p.id_participante, a.nome_atividade, p.nome_participante FROM Presenca pr INNER JOIN Participante p ON (p.id_participante = pr.id_participante) INNER JOIN Atividade a ON (a.id_atividade = pr.id_atividade) ORDER BY a.nome_atividade, p.nome_participante");
 
 }
   ?>
@@ -64,6 +64,7 @@ if (isset($_GET['id_atividade'])) {
         <tr>
           <th>Atividade</th>
           <th>Participante</th>
+					<th>Opções</th>
         </tr>
       </thead>
       <tbody>
@@ -73,11 +74,41 @@ if (isset($_GET['id_atividade'])) {
         <tr>
           <td><?= $p['nome_atividade'] ?></td>
           <td><?= $p['nome_participante'] ?></td>
+					<td><button type="button"
+						onclick="excluir(this)" data-idatividade="<?= $p['id_atividade'] ?>"
+						data-idparticipante="<?= $p['id_participante'] ?>">❎ Excluir</button></td>
         </tr>
         <?php
       }
       ?>
       </tbody>
   </div>
+	<script>
+	function excluir(botao) {
+		botao.disabled = true;
+
+		var form = new FormData();
+		form.append('id_atividade', botao.dataset.idatividade);
+		form.append('id_participante', botao.dataset.idparticipante);
+
+		var xhr = new XMLHttpRequest();
+
+		xhr.addEventListener('load', function(e) {
+			if (xhr.responseText == '0') {
+				alert('Não consegui excluir :(');
+			} else {
+				botao.parentElement.parentElement.remove(); /* retira a linha */
+			}
+		});
+
+		xhr.addEventListener('loadend', function() {
+			botao.disabled = false;
+		});
+
+		xhr.open('POST', 'excluirPresenca.php');
+		xhr.send(form);
+
+	}
+	</script>
 </body>
 </html>
