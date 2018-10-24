@@ -41,5 +41,7 @@ $atividades = $banco->selectSql('SELECT * FROM Atividade ORDER BY nome_atividade
 
 		?>
 	</div>
+	<p id="rodape">Copyleft 2018 | Daniel Conrado - Larissa Maiello - Maria Eduarda Ribas - Matheus Vasconcelos | </p> 
+
 </body>
 </html>
