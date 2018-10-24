@@ -39,12 +39,16 @@ if (isset($_POST['cpf_participante']) && isset($_POST['id_atividade'])) {
 
 		$participante = $participante[0];
 
-		$banco->insertInto('Presenca', [
+		$linhasAfetadas = $banco->insertInto('Presenca', [
 			'id_participante' => $participante['id_participante'],
 			'id_atividade' => $id_atividade
 		]);
 
-		$mensagem = 'Presença registrada!';
+		if ($linhasAfetadas == 0) {
+			$mensagem = 'Presença <i>já está</i> registrada!';
+		} else {
+			$mensagem = 'Presença registrada!';
+		}
 	}
 }
 ?>
