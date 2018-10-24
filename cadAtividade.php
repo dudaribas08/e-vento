@@ -60,5 +60,6 @@ if (isset($_POST['cadastrar'])) {
 			<div><button name="cadastrar" type="submit">Cadastrar</button></div>
 		</form>
 	</div>
+	<p id="rodape">Copyleft 2018 | Daniel Conrado - Larissa Maiello - Matheus Vasconcelos - Maria Eduarda Ribas - | </p> 
 </body>
 </html>
