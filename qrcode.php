@@ -52,7 +52,7 @@ $atividade = $banco->selectWhere('Atividade' , [
 					var ci = 0;
 
 					/* tentar selecionar sempre a camera traseira */
-					for (ci = 0; ci < cameras.length; ci++) {
+					for (ci = cameras.length-1; ci > 0; ci--) {
 						if (cameras[ci].name.indexOf('back') != -1)
 							break;
 					}
