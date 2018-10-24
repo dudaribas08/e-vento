@@ -57,3 +57,28 @@ form{
 #camera video {
 	transform: scaleX(-1);
 }
+
+.tabela {
+	border: 1px solid #cbcbcb;
+	border-collapse: collapse;
+	border-spacing: 0;
+	line-height: 1.6;
+	width: 90%;
+}
+
+.tabela thead {
+	background-color: #e0e0e0;
+	color: #000;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+.tabela th, td {
+	border-left: 1px solid #cbcbcb;
+	border-width: 0 0 0 1px;
+	padding: 0.5em 1em;
+}
+
+.tabela td {
+	background-color: transparent;
+}

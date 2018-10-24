@@ -15,6 +15,7 @@ if (!$login->usuarioEstaLogado()) {
 
 $atividades = $banco->selectSql('SELECT * FROM Atividade ORDER BY nome_atividade');
 
+$filtro = "";
 if (isset($_GET['id_atividade'])) {
   $id_atividade = $_GET['id_atividade'];
 
@@ -22,6 +23,8 @@ if (isset($_GET['id_atividade'])) {
     , [
       $id_atividade
     ]);
+
+		$filtro = "Mostrando apenas os presentes na Atividade $id_atividade";
 } else {
 
   $presentes = $banco->selectSql("SELECT a.nome_atividade, p.nome_participante FROM Presenca pr INNER JOIN Participante p ON (p.id_participante = pr.id_participante) INNER JOIN Atividade a ON (a.id_atividade = pr.id_atividade) ORDER BY a.nome_atividade, p.nome_participante");
@@ -33,6 +36,7 @@ if (isset($_GET['id_atividade'])) {
 <head>
 	<meta charset="UTF-8">
 	<title>E-vento - presença</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css.css">
 </head>
 <body>
@@ -51,7 +55,8 @@ if (isset($_GET['id_atividade'])) {
     ?>
 
     <h2>Presentes</h2>
-    <table border="1">
+		<p><?= $filtro ?></p>
+    <table border="1" class="tabela">
       <thead>
         <tr>
           <th>Atividade</th>
