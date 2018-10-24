@@ -30,6 +30,7 @@ $atividade = $banco->selectWhere('Atividade' , [
 <body>
 	<div id="conteiner">
 		<h1> <?=$atividade['nome_atividade']?> </h1>
+		<p id="btncameras"></p>
 		<div id="camera">
 			<video id="preview"></video>
 		</div>
@@ -49,17 +50,20 @@ $atividade = $banco->selectWhere('Atividade' , [
       });
       Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
-					var ci = 0;
 
-					/* tentar selecionar sempre a camera traseira */
-					for (ci = cameras.length-1; ci > 0; ci--) {
-						if (cameras[ci].name.indexOf('back') != -1)
-							break;
-					}
+					cameras.forEach(function (camera) {
 
-          scanner.start(cameras[ci]);
+						var btn = document.createElement('button');
+						btn.type = 'button'; /* sem comportamento padrao */
+						btn.textContent = 'Abrir camera ' + camera.id;
+						btn.addEventListener('click', function(e) {
+							scanner.start(camera);
+						});
+						document.querySelector('#btncameras').appendChild(btn);
+					});
+
         } else {
-          console.error('No cameras found.');
+          document.querySelector('#btncameras').textContent = 'O dispositivo não possui câmera.';
         }
       }).catch(function (e) {
         console.error(e);
