@@ -78,5 +78,7 @@ $atividade = $banco->selectWhere('Atividade' , [
       	document.querySelector('#dados').submit();
       }
     </script>
+	<p id="rodape">Copyleft 2018 | Daniel Conrado - Larissa Maiello - Maria Eduarda Ribas - Matheus Vasconcelos | </p> 
+	
 </body>
 </html>
