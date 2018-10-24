@@ -16,15 +16,15 @@ $usuario = $login->getUsuario();
 
 $mensagem = '';
 if (isset($_POST['cadastrar'])) {
-	$nome = $_POST['nome'];
+	/*$nome = $_POST['nome'];
 	$email = $_POST['email'];
-	$cpf = $_POST['cpf'];
+	$cpf = $_POST['cpf'];*/
 
-	$linhasAfetadas = $banco->insertInto('Participante', [
+	$linhasAfetadas = cadastrarParticipante($banco, $_POST); /*$banco->insertInto('Participante', [
 		'nome_participante' => $nome,
 		'email' => $email,
 		'cpf' => $cpf,
-	]);
+	]);*/
 
 	if ($linhasAfetadas == 0) {
 		$mensagem = "Não consegui cadastrar. (Participante pode já estar cadastrado.)";
