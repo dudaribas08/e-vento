@@ -50,8 +50,11 @@ $atividade = $banco->selectWhere('Atividade' , [
         if (cameras.length > 0) {
 					var ci = 0;
 
-					if (cameras.length > 1)
-						ci = parseInt(window.prompt('Tem ' + cameras.length + ' cameras. Qual abrir?'));
+					/* tentar selecionar sempre a camera traseira */
+					for (ci = 0; ci < cameras.length; ci++) {
+						if (cameras[ci].name.indexOf('back') != -1)
+							break;
+					}
 
           scanner.start(cameras[ci]);
         } else {
