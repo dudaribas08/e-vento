@@ -119,3 +119,7 @@ form{
 	height: 28px;
 	margin-top: 10px;
 }
+#rodape{
+	letter-spacing: 10px;
+	text-align: center;
+}
