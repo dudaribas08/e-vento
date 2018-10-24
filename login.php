@@ -53,5 +53,7 @@ if (isset($_POST['btnentrar'])) { // o formulário foi submetido. Tentar logar
 		</form>
 
 	</main>
+	<p id="rodape">Copyleft 2018 | Daniel Conrado - Larissa Maiello - Maria Eduarda Ribas - Matheus Vasconcelos | </p> 
+
 </body>
 </html>
