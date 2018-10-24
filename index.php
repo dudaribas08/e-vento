@@ -34,5 +34,6 @@ $usuario = $login->getUsuario();
 			<li style="background-color: red"><a href="logout.php">sair</a></li>
 		</ul>
 	</nav>
+	<p id="rodape">Copyleft 2018 | Daniel Conrado - Larissa Maiello - Maria Eduarda Ribas - Matheus Vasconcelos | </p> 
 </body>
 </html>
